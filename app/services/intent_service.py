@@ -51,11 +51,18 @@ class IntentDetectionService:
         """
         message_lower = message.lower()
         
-        # Check each intent pattern
-        for intent, patterns in self.intent_patterns.items():
-            if intent == 'general':
-                continue
-            
+        # Check intents in priority order (more specific first)
+        priority_intents = [
+            'low_stock_alert',
+            'low_rating_alert',
+            'attendance_prediction',
+            'attendance_stats',
+            'feedback_average',
+            'inventory_query'
+        ]
+        
+        for intent in priority_intents:
+            patterns = self.intent_patterns.get(intent, [])
             for pattern in patterns:
                 if re.search(pattern, message_lower):
                     return intent
@@ -77,12 +84,15 @@ class IntentDetectionService:
         params = {}
         message_lower = message.lower()
         
-        # Extract item names for inventory queries
+        # Extract item names for inventory queries (only if not alert/stock related)
         if intent == 'inventory_query':
-            # Try to extract item name after keywords
-            item_match = re.search(r'(item|stock|inventory)\s+(of\s+)?([a-z]+)', message_lower)
+            # Look for "for <item>" pattern
+            item_match = re.search(r'\bfor\s+([a-z][a-z0-9\s]*[a-z0-9])\b', message_lower)
             if item_match:
-                params['item_name'] = item_match.group(3)
+                item_name = item_match.group(1).strip()
+                # Exclude common words
+                if item_name not in ['low', 'stock', 'alert', 'alerts', 'items', 'item']:
+                    params['item_name'] = item_name
         
         # Extract date-related parameters for attendance
         if intent in ['attendance_stats', 'attendance_prediction']:
