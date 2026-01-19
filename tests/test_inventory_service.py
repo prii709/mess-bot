@@ -6,7 +6,7 @@ import os
 import json
 import pytest
 import pandas as pd
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import Mock, patch
 from services.inventory_service import InventoryService
 
 

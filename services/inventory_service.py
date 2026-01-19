@@ -97,17 +97,12 @@ class InventoryService:
         
         low_stock_df = self.inventory_df[
             self.inventory_df['quantity'] < threshold
-        ].copy()
+        ][['item_name', 'quantity']].copy()
         
-        # Return as list of dictionaries
-        result = []
-        for _, row in low_stock_df.iterrows():
-            result.append({
-                'item_name': row['item_name'],
-                'quantity': float(row['quantity'])
-            })
+        # Convert quantity to float for JSON serialization
+        low_stock_df['quantity'] = low_stock_df['quantity'].astype(float)
         
-        return result
+        return low_stock_df.to_dict('records')
     
     def get_all_items(self) -> List[Dict[str, float]]:
         """
@@ -119,11 +114,9 @@ class InventoryService:
         if self.inventory_df is None or self.inventory_df.empty:
             return []
         
-        result = []
-        for _, row in self.inventory_df.iterrows():
-            result.append({
-                'item_name': row['item_name'],
-                'quantity': float(row['quantity'])
-            })
+        result_df = self.inventory_df[['item_name', 'quantity']].copy()
         
-        return result
+        # Convert quantity to float for JSON serialization
+        result_df['quantity'] = result_df['quantity'].astype(float)
+        
+        return result_df.to_dict('records')
