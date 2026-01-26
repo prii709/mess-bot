@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! 🎉</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="musicToggle" class="music-btn">
+            <span class="music-icon">🎵</span>
+        </button>
+    </div>
+    <audio id="bgMusic" loop>
+        <!-- You can add a music file here: <source src="audio/birthday.mp3" type="audio/mpeg"> -->
+    </audio>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#memories">Memories</a></li>
+            <li><a href="#message">Message</a></li>
+            <li><a href="#fun">Fun</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Happy Birthday 🎉</h1>
+            <h2 class="hero-name">Madhu</h2>
+            <div class="hero-image-container">
+                <img src="images/20240312_174854.jpg" alt="Hero" class="hero-image">
+            </div>
+            <p class="hero-subtitle typing-text"></p>
+            <a href="#gallery" class="hero-btn">Let's Celebrate! ✨</a>
+        </div>
+        <div class="sparkles" id="sparkles"></div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Our Beautiful Moments 📸</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-image="images/20230217_121526.jpg">
+                    <img src="images/20230217_121526.jpg" alt="Memory 1">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-image="images/20231025_082857.jpg">
+                    <img src="images/20231025_082857.jpg" alt="Memory 2">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-image="images/20240312_174854.jpg">
+                    <img src="images/20240312_174854.jpg" alt="Memory 3">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-image="images/20240322_112911.jpg">
+                    <img src="images/20240322_112911.jpg" alt="Memory 4">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-image="images/20240322_141323.jpg">
+                    <img src="images/20240322_141323.jpg" alt="Memory 5">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-image="images/20240614_175722-EFFECTS.jpg">
+                    <img src="images/20240614_175722-EFFECTS.jpg" alt="Memory 6">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-image="images/IMG-20240614-WA0134.jpg">
+                    <img src="images/IMG-20240614-WA0134.jpg" alt="Memory 7">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-image="images/20240911_152810-POP_OUT.jpg">
+                    <img src="images/20240911_152810-POP_OUT.jpg" alt="Memory 8">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-image="images/COLOR_POP.jpg">
+                    <img src="images/COLOR_POP.jpg" alt="Memory 9">
+                    <div class="gallery-overlay">
+                        <span class="zoom-icon">🔍</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Lightbox Image" class="lightbox-image">
+        <button class="lightbox-prev">❮</button>
+        <button class="lightbox-next">❯</button>
+    </div>
+
+    <!-- Memories Slideshow Section -->
+    <section id="memories" class="memories-section">
+        <div class="container">
+            <h2 class="section-title">Journey Through Time ⏰</h2>
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="images/20230217_121526.jpg" alt="February 2023">
+                    <p class="slide-caption">February 2023 - Beautiful Beginnings</p>
+                </div>
+                <div class="slide">
+                    <img src="images/20231025_082857.jpg" alt="October 2023">
+                    <p class="slide-caption">October 2023 - Morning Smiles</p>
+                </div>
+                <div class="slide">
+                    <img src="images/20240312_174854.jpg" alt="March 2024">
+                    <p class="slide-caption">March 2024 - Spring Vibes</p>
+                </div>
+                <div class="slide">
+                    <img src="images/20240322_112911.jpg" alt="March 2024">
+                    <p class="slide-caption">March 2024 - Midday Magic</p>
+                </div>
+                <div class="slide">
+                    <img src="images/20240322_141323.jpg" alt="March 2024">
+                    <p class="slide-caption">March 2024 - Afternoon Glow</p>
+                </div>
+                <div class="slide">
+                    <img src="images/20240614_175722-EFFECTS.jpg" alt="June 2024">
+                    <p class="slide-caption">June 2024 - Artistic Moments</p>
+                </div>
+                <div class="slide">
+                    <img src="images/IMG-20240614-WA0134.jpg" alt="June 2024">
+                    <p class="slide-caption">June 2024 - Sweet Memories</p>
+                </div>
+                <div class="slide">
+                    <img src="images/20240911_152810-POP_OUT.jpg" alt="September 2024">
+                    <p class="slide-caption">September 2024 - Standing Out</p>
+                </div>
+                <div class="slide">
+                    <img src="images/COLOR_POP.jpg" alt="Colorful">
+                    <p class="slide-caption">Vibrant & Full of Life</p>
+                </div>
+                
+                <button class="slide-btn prev" onclick="changeSlide(-1)">❮</button>
+                <button class="slide-btn next" onclick="changeSlide(1)">❯</button>
+                
+                <div class="slide-controls">
+                    <button id="playPause" class="control-btn">⏸️</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section id="message" class="message-section">
+        <div class="container">
+            <div class="message-card">
+                <div class="heart-particles" id="heartParticles"></div>
+                <h2 class="section-title">From the Heart 💖</h2>
+                <div class="message-content reveal-text">
+                    <p class="message-paragraph">
+                        Anbulla Madhu,
+
+College-la first time unna meet pannadhu la irundhu, nee dhaan en life-oda romba special part aagitta. Namma rendu perum late night-la azhudhadhu, oruthar oruthar breakdown-la irundha time-la thooki pidichadhu, chinna chinna success-ku kooda unmaiyaa happy aagittadhu… idhellaam en manasula permanent-aa irukkum.
+
+Namma short scooter rides college-la irundhu bus stand vara… petrol illainaalum confidence mattum full 😄 time kammi irundhaalum pesunadhu romba. Lunch-ku veetuku theriyaama poittu, enna pesuradhune theriyama pesittu irundha moments ellam romba precious. Sometimes unna paathaa ennaiye paakura maadhiri irukkum, adhaan enakku romba pudikkum.
+
+Inime namma frequent-aa meet panna mudiyuma, daily pesuvoma nu theriyala. Aana nee en life-la oru important chapter nu eppovume maaradhu. Nee enna marandhaalum, ennala unna marakka mudiyadhu. Naan appo appo call panni torture pannuvaen, avlo seekram unna vida maatten 😄
+
+Nee ennai vida better people-a meet pannalaam, better friends kooda kidaikkalaam. Aana namma bond unique. Enakku “enakku nu oru friend” venum nu naan eppovume ninaichirundhen… adhu nee dhaan.
+
+Eppovum, entha situation-la irundhaalum, entha distance irundhaalum, naan unakku iruppen — anytime, anywhere, anyhow.
+
+Happy Birthday di 🤍</p>
+                    <p class="message-signature">
+                        With all my love,<br>
+                        Your Best Friend Forever 💕
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fun Section -->
+    <section id="fun" class="fun-section">
+        <div class="container">
+            <h2 class="section-title">Fun Zone 🎈</h2>
+            <div class="fun-content">
+                <div class="quotes-card">
+                    <h3 class="quotes-title">Things I Love About You:</h3>
+                    <ul class="quotes-list">
+                        <li>love how tyou think</li>
+                        <li>the similarity in us</li>
+                        <li>you know what you wnat</li>
+                        <li>appo appo loosu maadhiri irupa</li>
+                        <li>overthink panni depression aaguva 😂</li>
+                        <li>idhu ellam ennoda favourite things</li>
+                    </ul>
+                </div>
+                
+                <div class="surprise-section">
+                    <button id="surpriseBtn" class="surprise-btn">
+                        🎁 Click for an important message
+                    </button>
+                    <div id="surpriseMessage" class="surprise-message hidden">
+                        <p>live for yourself bro. nee ellarukaagvum yosichadhu podhum nee unakaaga yosi. be a little selfish about you there is no worong in that.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Made with 💖 and lots of love</p>
+        <p class="footer-note">© 2026 | A special celebration for a special person</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
